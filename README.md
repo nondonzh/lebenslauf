@@ -1,2 +1,2 @@
-# lebenslauf
-Dies ist eine Website die von mir gecodet wurde. Es dient als CV.
+# Lebenslauf
+Dies ist eine Website die von mir mit ein wenig Hilfe gecodet wurde! Es dient als CV.
