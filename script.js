@@ -28,9 +28,9 @@ function navBeiScroll() {
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 100) {
-            nav.style.background = 'rgba(44, 94, 80, 0.95)';
+            nav.style.background = 'rgba(0, 0, 0, 0.95)';
         } else {
-            nav.style.background = '#2c5e50';
+            nav.style.background = '#000000';
         }
     });
 }
@@ -39,5 +39,5 @@ function navBeiScroll() {
 document.addEventListener('DOMContentLoaded', function() {
     smoothScroll();
     navBeiScroll();
-    console.log('Website ist fertig geladen!');
+    console.log('Lebenslauf Website ist fertig geladen!');
 });
