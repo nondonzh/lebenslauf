@@ -1,27 +1,43 @@
-// Einfache Funktion für Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
-            });
+// Smooth Scroll
+function smoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    for (let link of links) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const zielId = this.getAttribute('href');
+            const zielElement = document.querySelector(zielId);
+            
+            if (zielElement) {
+                const navHoehe = 70;
+                const zielPosition = zielElement.offsetTop - navHoehe;
+                
+                window.scrollTo({
+                    top: zielPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+}
+
+// Navigation beim Scrollen
+function navBeiScroll() {
+    const nav = document.querySelector('nav');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            nav.style.background = 'rgba(44, 94, 80, 0.95)';
+        } else {
+            nav.style.background = '#2c5e50';
         }
     });
-});
+}
 
-// Einfache Navigation-Hintergrund bei Scroll
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 100) {
-        nav.style.backgroundColor = 'rgba(44, 94, 80, 0.95)';
-    } else {
-        nav.style.backgroundColor = 'var(--primary-color)';
-    }
+// Alles starten
+document.addEventListener('DOMContentLoaded', function() {
+    smoothScroll();
+    navBeiScroll();
+    console.log('Website ist fertig geladen!');
 });
-
-// Einfache Konsolenausgabe
-console.log('Willkommen auf meinem Lebenslauf!');
-console.log('Diese Website wurde von mir erstellt.');
